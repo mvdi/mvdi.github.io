@@ -1,6 +1,7 @@
 ---
 title: Hello World!
 layout: post
+mathjax: true
 ---
 
 MathJax equation:
