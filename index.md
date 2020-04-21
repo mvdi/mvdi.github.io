@@ -1,6 +1,5 @@
 ---
 title: Hello World!
-mathjax: true
 layout: default
 ---
 
