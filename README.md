@@ -1,6 +1,5 @@
 ---
 mathjax: true
-include mathjax.html 
 ---
 
 ## Welcome to GitHub Pages
