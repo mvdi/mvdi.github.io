@@ -1,7 +1,6 @@
 ---
 title: Hello World!
 layout: default
-mathjax: true
 ---
 
 MathJax equation:
