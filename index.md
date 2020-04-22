@@ -3,7 +3,7 @@ title: Hello World!
 layout: post
 ---
 
-Mathjax inline equation $$ g(z) = w_i x_i + b$.
+Mathjax inline equation $$ g(z) = w_i x_i + b$$.
 
 MathJax display style equation equation:
 
