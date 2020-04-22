@@ -1,6 +1,6 @@
 ---
 title: Hello World!
-layout: post
+layout: default
 ---
 
 Mathjax inline equation $$ g(z) = w_i x_i + b$$.
