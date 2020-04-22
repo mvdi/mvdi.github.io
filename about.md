@@ -1,7 +1,7 @@
 ---
-layout: post
 title: About
+layout: post
 ---
 
 # About Me
-This page tells you a little bit about me.
+This page tells you who I am.

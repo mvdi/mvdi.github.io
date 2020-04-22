@@ -1,12 +1,11 @@
 ---
-title: Madison Anderson
 layout: default
 mathjax: true
 ---
 
 {% include mathjax.html %}
-{% include navigation.html %}
 
+# Home
 Mathjax inline equation $$ g(z) = w_i x_i + b$$.
 
 MathJax display style equation equation:
