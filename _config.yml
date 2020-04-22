@@ -1,4 +1,4 @@
 markdown: kramdown
-theme: minima
+theme: jekyll-theme-hyde
 title: Madison Anderson
 description: Project Blog
