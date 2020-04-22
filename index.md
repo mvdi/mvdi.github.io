@@ -5,6 +5,7 @@ mathjax: true
 ---
 
 {% include mathjax.html %}
+{% include navigation.html %}
 
 Mathjax inline equation $$ g(z) = w_i x_i + b$$.
 
