@@ -1,6 +1,6 @@
 ---
 title: Physics
-layout: post
+layout: page
 ---
 
 # Physics

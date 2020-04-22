@@ -1,5 +1,7 @@
 - name: About
   link: /about.html
+- blog: Blog
+  link: /blog.html
 - name: Data Science
   link: /data-science.html
 - name: Personal

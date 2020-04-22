@@ -1,6 +1,6 @@
 ---
 title: Data science
-layout: post
+layout: page
 ---
 
 # Data Science

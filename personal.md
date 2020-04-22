@@ -1,6 +1,6 @@
 ---
 title: Personal
-layout: post
+layout: page
 ---
 
 # Personal
