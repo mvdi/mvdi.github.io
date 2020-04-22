@@ -1,6 +1,6 @@
 ---
 title: Madison Anderson
-layout: post
+layout: default
 mathjax: true
 ---
 
