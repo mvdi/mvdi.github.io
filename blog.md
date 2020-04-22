@@ -1,6 +1,7 @@
 ---
 title: Blog
 layout: page
+mathjax: true
 ---
 
 # Blog
@@ -45,4 +46,4 @@ for display-style math. That's it!
 
 
 ## Jekyll
-Jekyll is a ruby-based static site generator designed with blogging in mind. This post explains how I set up this Jekyll site.
+Jekyll is a ruby-based static site generator designed with blogging in mind. This post explains how I set up this Jekyll site. First
