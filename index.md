@@ -5,4 +5,4 @@ mathjax: true
 {% include mathjax.html %}
 
 # Home
-This page give an overview of the things on my site.
+This page gives an overview of the things on my site.
