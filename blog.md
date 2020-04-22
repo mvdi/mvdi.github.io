@@ -1,7 +1,6 @@
 ---
 title: Blog
 layout: page
-mathjax: true
 ---
 
 # Blog
@@ -16,7 +15,34 @@ and here's a display-style equation:
 $$R_{\mu\nu} - \frac{1}{2}Rg_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4}T_{\mu\nu}.$$
 
 
-This post explains how to deploy MathJax within Jekyll.
+This post explains how to deploy MathJax within Jekyll. First, create ```_includes/mathjax.html```:
+
+{% highlight html %}{% raw %}
+{% if page.mathjax %}
+<script type="text/javascript" async
+  src="https://cdnjs.clouwdflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+{% endif %}{% endraw %}
+{% endhighlight %}
+
+Then include MathJax in a layout. Create ```_layouts/page.html```:
+
+{% highlight liquid %}{% raw %}
+---
+layout: default
+mathjax: true
+---
+{% include mathjax.html %}
+{{ content }}{% endraw %}
+{% endhighlight %}
+You can now use ```{% raw %}$$[...]$${% endraw %}``` for inline math and
+
+```{% raw %}
+$$[...]$${% endraw %}
+```
+
+for display-style math. That's it!
+
 
 ## Jekyll
 Jekyll is a ruby-based static site generator designed with blogging in mind. This post explains how I set up this Jekyll site.
