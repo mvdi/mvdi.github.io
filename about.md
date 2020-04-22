@@ -1,7 +1,7 @@
 ---
-layout: default
+layout: post
 title: About
 ---
 
-# Header
+# About Me
 This page tells you a little bit about me.
