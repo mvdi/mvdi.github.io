@@ -1,5 +1,4 @@
 markdown: kramdown
-baseurl: http://mvdi.github.io/poole/
-theme: jekyll-theme-hyde
+theme: minima
 title: Madison Anderson
 description: Project Blog
