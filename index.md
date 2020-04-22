@@ -4,6 +4,8 @@ layout: post
 mathjax: true
 ---
 
+{% include mathjax.html %}
+
 Mathjax inline equation $$ g(z) = w_i x_i + b$$.
 
 MathJax display style equation equation:
