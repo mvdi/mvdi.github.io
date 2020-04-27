@@ -11,7 +11,7 @@
 
   <title>
     
-      Tags &middot; Madison Anderson
+      MathJax setup &middot; Madison Anderson
     
   </title>
 
@@ -35,8 +35,12 @@
 </head>
 
   
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
-  <body class="tags">
+
+  <body class="post">
 
     <div id="sidebar">
   <header>
@@ -97,8 +101,6 @@
   
 
   
-
-  
     
   
 
@@ -138,8 +140,6 @@
 
   
     
-  
-
   
 
   
@@ -207,27 +207,89 @@
 
     <main class="container">
       <header>
-  <h1 class="page-title">Tags</h1>
+  <h1 class="post-title">MathJax setup</h1>
 </header>
 <div class="content">
-  <!-- See https://blog.lanyonm.org/articles/2013/11/21/alphabetize-jekyll-page-tags-pure-liquid.html -->
-<!-- With added pipe to handle lack of sort_natural -->
-
-<!-- site_tags:  -->
-
-<!-- tag_words:  -->
-
-<div id="tags-page">
-  <div class="tags-list">
+  <div class="post-meta">
+  <span class="post-date">24 Apr 2020</span>
+  <span class="post-categories">
     
-  </div>
-
-  <hr/>
-
-  <div class="posts-by-tag">
-    
-  </div>
+  </span>
 </div>
+
+
+  <div class="post-body">
+    <p>MathJax renders LaTeX to CSS/webfonts/SVG for high quality web-typography. Here’s an inline equation,
+\(|\Phi^+\rangle = \frac{1}{\sqrt{2}} (|0\rangle_A \otimes |0\rangle_B + |1\rangle_A \otimes |1\rangle_B)\), and here’s a display-style equation:</p>
+
+\[R_{\mu\nu} - \frac{1}{2}Rg_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4}T_{\mu\nu}.\]
+
+<p>This post explains how to deploy MathJax within Jekyll. First, create <code class="highlighter-rouge">_includes/mathjax.html</code>:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">{% if page.mathjax %}
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">async</span>
+  <span class="na">src=</span><span class="s">"https://cdnjs.clouwdflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
+{% endif %}</code></pre></figure>
+
+<p>Then include MathJax in a layout. Create <code class="highlighter-rouge">_layouts/page.html</code>:</p>
+
+<figure class="highlight"><pre><code class="language-liquid" data-lang="liquid">---
+layout: default
+mathjax: true
+---
+<span class="p">{%</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span>mathjax.html<span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">content</span><span class="w"> </span><span class="p">}}</span></code></pre></figure>
+
+<p>You can now use <code class="highlighter-rouge">$$[...]$$</code> for inline math and</p>
+
+<figure class="highlight"><pre><code class="language-tex" data-lang="tex"><span class="p">$$</span><span class="o">[</span><span class="nb">...</span><span class="o">]</span><span class="p">$$</span></code></pre></figure>
+
+<p>for display-style math. That’s it!</p>
+
+    
+
+
+
+<div class="post-tags">
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <p>
+    You are seeing this because your Disqus shortname is not properly set. To
+    configure Disqus, you should edit your <code>_config.yml</code> to include
+    either a <code>disqus.shortname</code> variable.
+  </p>
+
+  <p>
+    If you do not wish to use Disqus, override the
+    <code>comments.html</code> partial for this theme.
+  </p>
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/2020/04/23/Jekyll.html">
+            Jekyll and Hyde(out) setup
+            <small>23 Apr 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
 </div>
 
     </main>
