@@ -34,11 +34,7 @@ $$z(\mathbf{r}) = \hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}),$$
 
 then we see that $$h(z(\mathbf{r}))$$ will be approximately 0 to one side of the plane and 1 to the other.
 
-Since we don't know *a priori* what $$\hat{\mathbf{n}}$$ or $$\mathbf{p}$$ should be (at least without doing the computer's job), we may as well call
-
-$$\hat{\mathbf{n}} = (\theta_1,\theta_2,\theta_3) \equiv \vec{\theta},$$
-
-and $$-\hat{\mathbf{n}}\cdot\mathbf{p} = \theta_0$$. With these definitions
+Since we don't know *a priori* what $$\hat{\mathbf{n}}$$ or $$\mathbf{p}$$ should be (at least without doing the computer's job), we may as well call $$-\hat{\mathbf{n}}\cdot\mathbf{p} = \theta_0$$. With these definitions
 
 $$\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) = \mathbf{n}\cdot\mathbf{r}+\theta_0,$$
 
