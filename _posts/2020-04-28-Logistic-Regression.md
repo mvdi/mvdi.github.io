@@ -34,7 +34,7 @@ $$z(\mathbf{r}) = \hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}),$$
 
 then we see that $$h(z(\mathbf{r}))$$ will be approximately 0 to one side of the plane and 1 to the other.
 
-Since we don't know *a priori* what $$\hat{\mathbf{n}}$$ or $$\mathbf{p})$$ should be (at least without doing the computer's job), we may as well call
+Since we don't know *a priori* what $$\hat{\mathbf{n}}$$ or $$\mathbf{p}$$ should be (at least without doing the computer's job), we may as well call
 
 $$\hat{\mathbf{n}} = (\theta_1,\theta_2,\theta_3) \equiv \vec{\theta},$$
 
@@ -46,4 +46,4 @@ and we see that the appropriate classifying function is
 
 $$h(z) = \frac{1}{1+e^{-\hat{\mathbf{n}}\cdot\mathbf{r}-\theta_0}}.$$
 
-The offset $\theta_0$ could be anything, but we can constrain the collection of weights $$n_i$$ to be normalized: $$n_1^2+n_2^2+\cdots = 1$$.
+The offset $$\theta_0$$ could be anything, but we can constrain the collection of weights $$n_i$$ to be normalized: $$n_1^2+n_2^2+\cdots = 1$$.
