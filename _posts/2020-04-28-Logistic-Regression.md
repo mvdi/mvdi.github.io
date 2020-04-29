@@ -16,7 +16,7 @@ A plane may be specified by a normal unit vector $$\hat{\mathbf{n}}$$ and a poin
 
 $$\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) = 0.$$
 
-Since there are infinite choices for $$\mathbf{p}$$ and $$\mathbf{r}$$ is arbitrary, $$(\mathbf{r}-\mathbf{p})$$ could be any vector in the plane, and then this simply says that any vector lying in the plane must be perpendicular to $$\hat{\mathbf{n}}$$. But most importantly for point to one side of the plane, we have
+Since there are infinite choices for $$\mathbf{p}$$, and $$\mathbf{r}$$ is arbitrary, $$(\mathbf{r}-\mathbf{p})$$ could be any vector in the plane, and then this simply says that any vector lying in the plane must be perpendicular to $$\hat{\mathbf{n}}$$. But most importantly for points to one side of the plane, we have
 
 $$\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) > 0,$$
 
@@ -24,21 +24,21 @@ and to the other side we have
 
 $$\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) < 0.$$
 
-This behavior is just what we want to plug into some approximately binary function and model the classification problem. An good choice for a smooth approximately binary model is the logistic function:
+This behavior is just what we want to plug into some approximately binary function and model the classification problem. A good choice for a smooth approximately binary model is the logistic function:
 
 $$h(z) = \frac{1}{1+e^{-z}}.$$
 
-Over most of real line this function is approximately 0 (at $$z\to -\infty$$) or 1 (as $$z\to + \infty$$) and it "turns on" region near $$z=0$$. If we let
+Over most of the real line this function is approximately 0 (at $$z\to -\infty$$) or 1 (as $$z\to + \infty$$) and it "turns on" in the region near $$z=0$$. If we let
 
 $$z(\mathbf{r}) = \hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}),$$
 
 then we see that $$h(z(\mathbf{r}))$$ will be approximately 0 to one side of the plane and 1 to the other.
 
-Since we don't know *a priori* what $$\hat{\mathbf{n}}$$ or $$\mathbf{p}$$ should be (at least without doing the computer's job), we may as well call $$-\hat{\mathbf{n}}\cdot\mathbf{p} = \theta_0$$. With these definitions
+Since we don't know *a priori* what $$\hat{\mathbf{n}}$$ or $$\mathbf{p}$$ should be (at least not without doing the computer's job), we may as well call $$-\hat{\mathbf{n}}\cdot\mathbf{p} = \theta_0$$. With these definitions
 
 $$\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) = \mathbf{n}\cdot\mathbf{r}+\theta_0,$$
 
-and we see that the appropriate classifying function is
+we see that the appropriate classifying function is
 
 $$h(z) = \frac{1}{1+e^{-\hat{\mathbf{n}}\cdot\mathbf{r}-\theta_0}}.$$
 

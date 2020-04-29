@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://mvdi.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mvdi.github.io/" rel="alternate" type="text/html" /><updated>2020-04-29T15:14:49-04:00</updated><id>https://mvdi.github.io/feed.xml</id><title type="html">Madison Anderson</title><subtitle>A place for thoughts and projects.</subtitle><author><name>Madison Anderson</name></author><entry><title type="html">Jupyter Kernel</title><link href="https://mvdi.github.io/data%20science/2020/04/28/Jupyter-Kernels.html" rel="alternate" type="text/html" title="Jupyter Kernel" /><published>2020-04-28T00:00:00-04:00</published><updated>2020-04-28T00:00:00-04:00</updated><id>https://mvdi.github.io/data%20science/2020/04/28/Jupyter-Kernels</id><content type="html" xml:base="https://mvdi.github.io/data%20science/2020/04/28/Jupyter-Kernels.html">&lt;p&gt;Jupyter &lt;code class=&quot;highlighter-rouge&quot;&gt;sys.executable&lt;/code&gt; should return the path to your Anaconda version of python: &lt;code class=&quot;highlighter-rouge&quot;&gt;'/Users/madi/opt/anaconda3/bin/python'&lt;/code&gt;. If it doesn’t, there are probably overriding Jupyter kernels. In the terminal, run:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://mvdi.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mvdi.github.io/" rel="alternate" type="text/html" /><updated>2020-04-29T15:19:35-04:00</updated><id>https://mvdi.github.io/feed.xml</id><title type="html">Madison Anderson</title><subtitle>A place for thoughts and projects.</subtitle><author><name>Madison Anderson</name></author><entry><title type="html">Jupyter Kernel</title><link href="https://mvdi.github.io/data%20science/2020/04/28/Jupyter-Kernels.html" rel="alternate" type="text/html" title="Jupyter Kernel" /><published>2020-04-28T00:00:00-04:00</published><updated>2020-04-28T00:00:00-04:00</updated><id>https://mvdi.github.io/data%20science/2020/04/28/Jupyter-Kernels</id><content type="html" xml:base="https://mvdi.github.io/data%20science/2020/04/28/Jupyter-Kernels.html">&lt;p&gt;Jupyter &lt;code class=&quot;highlighter-rouge&quot;&gt;sys.executable&lt;/code&gt; should return the path to your Anaconda version of python: &lt;code class=&quot;highlighter-rouge&quot;&gt;'/Users/madi/opt/anaconda3/bin/python'&lt;/code&gt;. If it doesn’t, there are probably overriding Jupyter kernels. In the terminal, run:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;jupyter kernelspec list
 python2             	/Users/madi/Library/Jupyter/kernels/python2
@@ -19,7 +19,7 @@ jupyter kernelspec uninstall python3&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 \[\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) = 0.\]
 
-&lt;p&gt;Since there are infinite choices for \(\mathbf{p}\) and \(\mathbf{r}\) is arbitrary, \((\mathbf{r}-\mathbf{p})\) could be any vector in the plane, and then this simply says that any vector lying in the plane must be perpendicular to \(\hat{\mathbf{n}}\). But most importantly for point to one side of the plane, we have&lt;/p&gt;
+&lt;p&gt;Since there are infinite choices for \(\mathbf{p}\), and \(\mathbf{r}\) is arbitrary, \((\mathbf{r}-\mathbf{p})\) could be any vector in the plane, and then this simply says that any vector lying in the plane must be perpendicular to \(\hat{\mathbf{n}}\). But most importantly for points to one side of the plane, we have&lt;/p&gt;
 
 \[\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) &amp;gt; 0,\]
 
@@ -27,21 +27,21 @@ jupyter kernelspec uninstall python3&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 \[\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) &amp;lt; 0.\]
 
-&lt;p&gt;This behavior is just what we want to plug into some approximately binary function and model the classification problem. An good choice for a smooth approximately binary model is the logistic function:&lt;/p&gt;
+&lt;p&gt;This behavior is just what we want to plug into some approximately binary function and model the classification problem. A good choice for a smooth approximately binary model is the logistic function:&lt;/p&gt;
 
 \[h(z) = \frac{1}{1+e^{-z}}.\]
 
-&lt;p&gt;Over most of real line this function is approximately 0 (at \(z\to -\infty\)) or 1 (as \(z\to + \infty\)) and it “turns on” region near \(z=0\). If we let&lt;/p&gt;
+&lt;p&gt;Over most of the real line this function is approximately 0 (at \(z\to -\infty\)) or 1 (as \(z\to + \infty\)) and it “turns on” in the region near \(z=0\). If we let&lt;/p&gt;
 
 \[z(\mathbf{r}) = \hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}),\]
 
 &lt;p&gt;then we see that \(h(z(\mathbf{r}))\) will be approximately 0 to one side of the plane and 1 to the other.&lt;/p&gt;
 
-&lt;p&gt;Since we don’t know &lt;em&gt;a priori&lt;/em&gt; what \(\hat{\mathbf{n}}\) or \(\mathbf{p}\) should be (at least without doing the computer’s job), we may as well call \(-\hat{\mathbf{n}}\cdot\mathbf{p} = \theta_0\). With these definitions&lt;/p&gt;
+&lt;p&gt;Since we don’t know &lt;em&gt;a priori&lt;/em&gt; what \(\hat{\mathbf{n}}\) or \(\mathbf{p}\) should be (at least not without doing the computer’s job), we may as well call \(-\hat{\mathbf{n}}\cdot\mathbf{p} = \theta_0\). With these definitions&lt;/p&gt;
 
 \[\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) = \mathbf{n}\cdot\mathbf{r}+\theta_0,\]
 
-&lt;p&gt;and we see that the appropriate classifying function is&lt;/p&gt;
+&lt;p&gt;we see that the appropriate classifying function is&lt;/p&gt;
 
 \[h(z) = \frac{1}{1+e^{-\hat{\mathbf{n}}\cdot\mathbf{r}-\theta_0}}.\]
 
