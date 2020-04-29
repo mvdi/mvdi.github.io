@@ -11,7 +11,7 @@
 
   <title>
     
-      About &middot; Madison Anderson
+      Jupyter Kernel &middot; Madison Anderson
     
   </title>
 
@@ -35,8 +35,12 @@
 </head>
 
   
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
-  <body class="page">
+
+  <body class="post">
 
     <div id="sidebar">
   <header>
@@ -69,7 +73,7 @@
 
   
     
-      <a class="page-link  active"
+      <a class="page-link "
           href="/about.html">About</a>
     
   
@@ -214,13 +218,125 @@
 
     <main class="container">
       <header>
-  <h1 class="page-title">About</h1>
+  <h1 class="post-title">Jupyter Kernel</h1>
 </header>
 <div class="content">
-  <div class="message">
-This page tells you who I am.
-<div>
-</div></div>
+  <div class="post-meta">
+  <span class="post-date">28 Apr 2020</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/data-science.html">
+          Data Science
+        </a>
+      
+    
+  </span>
+</div>
+
+
+  <div class="post-body">
+    <p>Jupyter <code class="highlighter-rouge">sys.executable</code> should return the path to your Anaconda version of python: <code class="highlighter-rouge">'/Users/madi/opt/anaconda3/bin/python'</code>. If it doesn’t, there are probably overriding Jupyter kernels. In the terminal, run:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">jupyter kernelspec list
+python2             	/Users/madi/Library/Jupyter/kernels/python2
+python3             	/Users/madi/Library/Jupyter/kernels/python3</code></pre></figure>
+
+<p>Tell Jupyter to look for the Anaconda kernels by uninstalling the overriding kernels:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">jupyter kernelspec uninstall python2
+jupyter kernelspec uninstall python3</code></pre></figure>
+
+<p>Now <code class="highlighter-rouge">sys.executable</code> should return the path to your Anaconda version of python.</p>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#environment">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">environment</span>
+    </a>
+  
+    
+    <a href="/tags.html#management">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">management</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <p>
+    You are seeing this because your Disqus shortname is not properly set. To
+    configure Disqus, you should edit your <code>_config.yml</code> to include
+    either a <code>disqus.shortname</code> variable.
+  </p>
+
+  <p>
+    If you do not wish to use Disqus, override the
+    <code>comments.html</code> partial for this theme.
+  </p>
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/data%20science/2020/04/28/Logistic-Regression.html">
+            Logistic Regression
+            <small>28 Apr 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2020/04/24/MathJax.html">
+            MathJax setup
+            <small>24 Apr 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2020/04/23/Jekyll.html">
+            Jekyll and Hyde(out) setup
+            <small>23 Apr 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
 
 </div>
 

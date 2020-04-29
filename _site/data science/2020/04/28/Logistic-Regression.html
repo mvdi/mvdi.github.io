@@ -11,7 +11,7 @@
 
   <title>
     
-      Jekyll and Hyde(out) setup &middot; Madison Anderson
+      Logistic Regression &middot; Madison Anderson
     
   </title>
 
@@ -35,6 +35,10 @@
 </head>
 
   
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 
   <body class="post">
 
@@ -214,83 +218,99 @@
 
     <main class="container">
       <header>
-  <h1 class="post-title">Jekyll and Hyde(out) setup</h1>
+  <h1 class="post-title">Logistic Regression</h1>
 </header>
 <div class="content">
   <div class="post-meta">
-  <span class="post-date">23 Apr 2020</span>
+  <span class="post-date">28 Apr 2020</span>
   <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/data-science.html">
+          Data Science
+        </a>
+      
     
   </span>
 </div>
 
 
   <div class="post-body">
-    <p>Jekyll is a ruby-based static site generator that’s perfect for small sites. This post outlines how I set up this site with Jekyll. For a detailed walkthrough, see the instructions on <a href="https://jekyllrb.com/docs/installation/macos/">jekyllrb.com</a>.</p>
+    <p>Consider a binary classification problem where we have data consisting of 3 parameters, \(\{(x_i,y_i,z_i)\}\), and a binary variable \(q_i\), taking values of 0 or 1, where \(i\) takes values 1 to \(n\). For example, \((x_j,y_j,z_j)\) might represent the location of the \(j\)th person in an apartment complex and \(q_j\) might represent whether or not they test positive for an infectious disease. The data may be clustered or group with respect to the category, or it may not. Below is an example where the data exhibit two clusters:</p>
 
-<p>First, you’ll need to install Ruby, and make sure you have &gt;2.5.0. Use <a href="https://github.com/rbenv/rbenv">rbenv</a> if you need to manage multiple Ruby versions:</p>
+<p><img src="/assets/images/2d-category.png" alt="2D classification data" /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Install rbenv and ruby-build
-brew install rbenv
+<p>A human can easily make a qualitative judgement and draw a line (or a plane) separating the infected and uninfected clusters. We would like to see if we can let our computer do this through a fitting routine.</p>
 
-# Set up rbenv integration with your shell
-rbenv init
+<p>A plane may be specified by a normal unit vector \(\hat{\mathbf{n}}\) and a point \(\mathbf{p}\). Every point \(\mathbf{r}\) in the plane satisfies</p>
 
-# Check your installation
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
+\[\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) = 0.\]
 
-# Install and use ruby 2.7.1
-rbenv install 2.7.1
-rbenv global 2.7.1
-</code></pre></div></div>
+<p>Since there are infinite choices for \(\mathbf{p}\) and \(\mathbf{r}\) is arbitrary, \((\mathbf{r}-\mathbf{p})\) could be any vector in the plane, and then this simply says that any vector lying in the plane must be perpendicular to \(\hat{\mathbf{n}}\). But most importantly for point to one side of the plane, we have</p>
 
-<p>Now install Jekyll and Bundler</p>
+\[\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) &gt; 0,\]
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install --user-install bundler jekyll
-</code></pre></div></div>
+<p>and to the other side we have</p>
 
-<p>Get your ruby version</p>
+\[\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) &lt; 0.\]
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby -v
-ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c)
-</code></pre></div></div>
+<p>This behavior is just what we want to plug into some approximately binary function and model the classification problem. An good choice for a smooth approximately binary model is the logistic function:</p>
 
-<p>and add it to your path by adding the following to your shell configuration file, <code class="highlighter-rouge">.bash_profile</code> or otherwise:</p>
+\[h(z) = \frac{1}{1+e^{-z}}.\]
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PATH="$HOME/.gem/ruby/X.X.0/bin:$PATH"
-</code></pre></div></div>
+<p>Over most of real line this function is approximately 0 (at \(z\to -\infty\)) or 1 (as \(z\to + \infty\)) and it “turns on” region near \(z=0\). If we let</p>
 
-<p>Finally, install Jekyll and Bundler:</p>
+\[z(\mathbf{r}) = \hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}),\]
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install --user-install bundler jekyll
-</code></pre></div></div>
+<p>then we see that \(h(z(\mathbf{r}))\) will be approximately 0 to one side of the plane and 1 to the other.</p>
 
-<h2 id="theme-setup">Theme Setup</h2>
+<p>Since we don’t know <em>a priori</em> what \(\hat{\mathbf{n}}\) or \(\mathbf{p})\) should be (at least without doing the computer’s job), we may as well call</p>
 
-<p>Now you can fork the theme you want to use – for this site, I’m using <a href="https://github.com/fongandrew/hydeout">Hydeout</a> – and download it so you can add your content.</p>
+\[\hat{\mathbf{n}} = (\theta_1,\theta_2,\theta_3) \equiv \vec{\theta},\]
 
-<p>In your project directory, create a Gemfile:</p>
+<p>and \(-\hat{\mathbf{n}}\cdot\mathbf{p} = \theta_0\). With these definitions</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle init
-</code></pre></div></div>
+\[\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) = \mathbf{n}\cdot\mathbf{r}+\theta_0,\]
 
-<p>For Hydeout add <code class="highlighter-rouge">jekyll-pageinate</code>, <code class="highlighter-rouge">jekyll-gist</code> and <code class="highlighter-rouge">jekyll-feed</code> to your Gemfile and run <code class="highlighter-rouge">bundle install</code> and <code class="highlighter-rouge">bundle update</code> to install everything.</p>
+<p>and we see that the appropriate classifying function is</p>
 
-<p>Finally, to get Hydeout to work live, change your <code class="highlighter-rouge">baseurl:</code> to <code class="highlighter-rouge">http://[username].github.io</code> if you’re using Github pages, or the correct domain name otherwise.</p>
+\[h(z) = \frac{1}{1+e^{-\hat{\mathbf{n}}\cdot\mathbf{r}-\theta_0}}.\]
 
-<p>You should now be able to build and run with Jekyll:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll build
-jekyll serve
-</code></pre></div></div>
-
-<p>Visit <a href="http://localhost:4000">http://localhost:4000</a> to view your site!</p>
+<p>The offset $\theta_0$ could be anything, but we can constrain the collection of weights \(n_i\) to be normalized: \(n_1^2+n_2^2+\cdots = 1\).</p>
 
     
 
 
 
 <div class="post-tags">
+  
+    
+    <a href="/tags.html#fitting">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">fitting,</span>
+    </a>
+  
+    
+    <a href="/tags.html#classification">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">classification</span>
+    </a>
   
 </div>
   </div>
@@ -319,15 +339,6 @@ jekyll serve
     
       <li>
         <h3>
-          <a href="/data%20science/2020/04/28/Logistic-Regression.html">
-            Logistic Regression
-            <small>28 Apr 2020</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
           <a href="/data%20science/2020/04/28/Jupyter-Kernels.html">
             Jupyter Kernel
             <small>28 Apr 2020</small>
@@ -340,6 +351,15 @@ jekyll serve
           <a href="/2020/04/24/MathJax.html">
             MathJax setup
             <small>24 Apr 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2020/04/23/Jekyll.html">
+            Jekyll and Hyde(out) setup
+            <small>23 Apr 2020</small>
           </a>
         </h3>
       </li>

@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-27T17:25:37-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Madison Anderson</title><subtitle>A place for thoughts and projects.</subtitle><author><name>Madison Anderson</name></author><entry><title type="html">MathJax setup</title><link href="http://localhost:4000/2020/04/24/MathJax.html" rel="alternate" type="text/html" title="MathJax setup" /><published>2020-04-24T00:00:00-04:00</published><updated>2020-04-24T00:00:00-04:00</updated><id>http://localhost:4000/2020/04/24/MathJax</id><content type="html" xml:base="http://localhost:4000/2020/04/24/MathJax.html">&lt;p&gt;MathJax renders LaTeX to CSS/webfonts/SVG for high quality web-typography. Here’s an inline equation,
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-29T02:53:03-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Madison Anderson</title><subtitle>A place for thoughts and projects.</subtitle><author><name>Madison Anderson</name></author><entry><title type="html">Jupyter Kernel</title><link href="http://localhost:4000/data%20science/2020/04/28/Jupyter-Kernels.html" rel="alternate" type="text/html" title="Jupyter Kernel" /><published>2020-04-28T00:00:00-04:00</published><updated>2020-04-28T00:00:00-04:00</updated><id>http://localhost:4000/data%20science/2020/04/28/Jupyter-Kernels</id><content type="html" xml:base="http://localhost:4000/data%20science/2020/04/28/Jupyter-Kernels.html">&lt;p&gt;Jupyter &lt;code class=&quot;highlighter-rouge&quot;&gt;sys.executable&lt;/code&gt; should return the path to your Anaconda version of python: &lt;code class=&quot;highlighter-rouge&quot;&gt;'/Users/madi/opt/anaconda3/bin/python'&lt;/code&gt;. If it doesn’t, there are probably overriding Jupyter kernels. In the terminal, run:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;jupyter kernelspec list
+python2             	/Users/madi/Library/Jupyter/kernels/python2
+python3             	/Users/madi/Library/Jupyter/kernels/python3&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Tell Jupyter to look for the Anaconda kernels by uninstalling the overriding kernels:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;jupyter kernelspec uninstall python2
+jupyter kernelspec uninstall python3&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now &lt;code class=&quot;highlighter-rouge&quot;&gt;sys.executable&lt;/code&gt; should return the path to your Anaconda version of python.&lt;/p&gt;</content><author><name>Madison Anderson</name></author><category term="data science" /><category term="environment" /><category term="management" /><summary type="html">Jupyter sys.executable should return the path to your Anaconda version of python: '/Users/madi/opt/anaconda3/bin/python'. If it doesn’t, there are probably overriding Jupyter kernels. In the terminal, run:</summary></entry><entry><title type="html">Logistic Regression</title><link href="http://localhost:4000/data%20science/2020/04/28/Logistic-Regression.html" rel="alternate" type="text/html" title="Logistic Regression" /><published>2020-04-28T00:00:00-04:00</published><updated>2020-04-28T00:00:00-04:00</updated><id>http://localhost:4000/data%20science/2020/04/28/Logistic-Regression</id><content type="html" xml:base="http://localhost:4000/data%20science/2020/04/28/Logistic-Regression.html">&lt;p&gt;Consider a binary classification problem where we have data consisting of 3 parameters, \(\{(x_i,y_i,z_i)\}\), and a binary variable \(q_i\), taking values of 0 or 1, where \(i\) takes values 1 to \(n\). For example, \((x_j,y_j,z_j)\) might represent the location of the \(j\)th person in an apartment complex and \(q_j\) might represent whether or not they test positive for an infectious disease. The data may be clustered or group with respect to the category, or it may not. Below is an example where the data exhibit two clusters:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2d-category.png&quot; alt=&quot;2D classification data&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A human can easily make a qualitative judgement and draw a line (or a plane) separating the infected and uninfected clusters. We would like to see if we can let our computer do this through a fitting routine.&lt;/p&gt;
+
+&lt;p&gt;A plane may be specified by a normal unit vector \(\hat{\mathbf{n}}\) and a point \(\mathbf{p}\). Every point \(\mathbf{r}\) in the plane satisfies&lt;/p&gt;
+
+\[\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) = 0.\]
+
+&lt;p&gt;Since there are infinite choices for \(\mathbf{p}\) and \(\mathbf{r}\) is arbitrary, \((\mathbf{r}-\mathbf{p})\) could be any vector in the plane, and then this simply says that any vector lying in the plane must be perpendicular to \(\hat{\mathbf{n}}\). But most importantly for point to one side of the plane, we have&lt;/p&gt;
+
+\[\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) &amp;gt; 0,\]
+
+&lt;p&gt;and to the other side we have&lt;/p&gt;
+
+\[\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) &amp;lt; 0.\]
+
+&lt;p&gt;This behavior is just what we want to plug into some approximately binary function and model the classification problem. An good choice for a smooth approximately binary model is the logistic function:&lt;/p&gt;
+
+\[h(z) = \frac{1}{1+e^{-z}}.\]
+
+&lt;p&gt;Over most of real line this function is approximately 0 (at \(z\to -\infty\)) or 1 (as \(z\to + \infty\)) and it “turns on” region near \(z=0\). If we let&lt;/p&gt;
+
+\[z(\mathbf{r}) = \hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}),\]
+
+&lt;p&gt;then we see that \(h(z(\mathbf{r}))\) will be approximately 0 to one side of the plane and 1 to the other.&lt;/p&gt;
+
+&lt;p&gt;Since we don’t know &lt;em&gt;a priori&lt;/em&gt; what \(\hat{\mathbf{n}}\) or \(\mathbf{p})\) should be (at least without doing the computer’s job), we may as well call&lt;/p&gt;
+
+\[\hat{\mathbf{n}} = (\theta_1,\theta_2,\theta_3) \equiv \vec{\theta},\]
+
+&lt;p&gt;and \(-\hat{\mathbf{n}}\cdot\mathbf{p} = \theta_0\). With these definitions&lt;/p&gt;
+
+\[\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) = \mathbf{n}\cdot\mathbf{r}+\theta_0,\]
+
+&lt;p&gt;and we see that the appropriate classifying function is&lt;/p&gt;
+
+\[h(z) = \frac{1}{1+e^{-\hat{\mathbf{n}}\cdot\mathbf{r}-\theta_0}}.\]
+
+&lt;p&gt;The offset $\theta_0$ could be anything, but we can constrain the collection of weights \(n_i\) to be normalized: \(n_1^2+n_2^2+\cdots = 1\).&lt;/p&gt;</content><author><name>Madison Anderson</name></author><category term="data science" /><category term="fitting," /><category term="classification" /><summary type="html">Consider a binary classification problem where we have data consisting of 3 parameters, \(\{(x_i,y_i,z_i)\}\), and a binary variable \(q_i\), taking values of 0 or 1, where \(i\) takes values 1 to \(n\). For example, \((x_j,y_j,z_j)\) might represent the location of the \(j\)th person in an apartment complex and \(q_j\) might represent whether or not they test positive for an infectious disease. The data may be clustered or group with respect to the category, or it may not. Below is an example where the data exhibit two clusters:</summary></entry><entry><title type="html">MathJax setup</title><link href="http://localhost:4000/2020/04/24/MathJax.html" rel="alternate" type="text/html" title="MathJax setup" /><published>2020-04-24T00:00:00-04:00</published><updated>2020-04-24T00:00:00-04:00</updated><id>http://localhost:4000/2020/04/24/MathJax</id><content type="html" xml:base="http://localhost:4000/2020/04/24/MathJax.html">&lt;p&gt;MathJax renders LaTeX to CSS/webfonts/SVG for high quality web-typography. Here’s an inline equation,
 \(|\Phi^+\rangle = \frac{1}{\sqrt{2}} (|0\rangle_A \otimes |0\rangle_B + |1\rangle_A \otimes |1\rangle_B)\), and here’s a display-style equation:&lt;/p&gt;
 
 \[R_{\mu\nu} - \frac{1}{2}Rg_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4}T_{\mu\nu}.\]
