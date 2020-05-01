@@ -6,9 +6,9 @@ mathjax: true
 tags: fitting, classification
 ---
 
-Consider a binary classification problem where we have data consisting of 3 parameters, $$\{(x_i,y_i,z_i)\}$$, and a binary variable $$q_i$$, taking values of 0 or 1, where $$i$$ takes values 1 to $$n$$. For example, $$(x_j,y_j,z_j)$$ might represent the location of the $$j$$th person in an apartment complex and $$q_j$$ might represent whether or not they test positive for an infectious disease. The data may be clustered or grouped with respect to the category, or it may not. Below is an example where the data exhibit two clusters:
+Consider a binary classification problem where we have data consisting of 3 parameters, $$\{(x,y,z)_i\}$$, and a binary variable $$q_i$$, taking values of 0 or 1, where $$i$$ takes values 1 to $$n$$. For example, $$(x,y,z)_j$$ might represent the location of the $$j$$th person in an apartment complex and $$q_j$$ might represent whether or not they test positive for an infectious disease. The data may be clustered or grouped with respect to the category, or it may not. Below is an example where the data exhibit two clusters:
 
-![2D classification data](/assets/images/2d-category.png)
+![2D classification data](/assets/images/2d-category-data.png)
 
 A human can easily make a qualitative judgement and draw a line (or a plane) separating the infected and uninfected clusters. We would like to see if we can let our computer do this through a fitting routine.
 
@@ -34,12 +34,22 @@ $$z(\mathbf{r}) = \hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}),$$
 
 then we see that $$h(z(\mathbf{r}))$$ will be approximately 0 to one side of the plane and 1 to the other.
 
-Since we don't know *a priori* what $$\hat{\mathbf{n}}$$ or $$\mathbf{p}$$ should be (at least not without doing the computer's job), we may as well call $$-\hat{\mathbf{n}}\cdot\mathbf{p} = \theta_0$$. With these definitions
+Since we don't know *a priori* what $$\hat{\mathbf{n}}$$ or $$\mathbf{p}$$ should be (at least not without doing the computer's job), we may as well call $$-\hat{\mathbf{n}}\cdot\mathbf{p} = \beta_0$$. With these definitions
 
-$$\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) = \mathbf{n}\cdot\mathbf{r}+\theta_0,$$
+$$\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) = \hat{\mathbf{n}}\cdot\mathbf{r}+\theta_0,$$
 
 we see that the appropriate classifying function is
 
-$$h(z) = \frac{1}{1+e^{-\hat{\mathbf{n}}\cdot\mathbf{r}-\theta_0}}.$$
+$$h(z) = \frac{1}{1+e^{-\hat{\mathbf{n}}\cdot\mathbf{r}-\beta_0}}.$$
 
-The offset $$\theta_0$$ could be anything, but we can constrain the collection of weights $$n_i$$ to be normalized: $$n_1^2+n_2^2+\cdots = 1$$.
+One final modification is that we need to allow for the width of the turn on region to be adjusted. This means that we should allow the normal vector for the plane to be of any length, giving the usual form for the logistic function:
+
+$$h(\beta_i,x_i) = \frac{1}{1+e^{-\beta_0-\beta_i x_i}},$$
+
+with Einstein summation over the spatial indices $$i$$.
+
+Let's see how this model performs using `lmfit` to fit some clustered data generated with `scikit-learn`:
+
+Data | Fit
+:----:|:----:
+<img src="/assets/images/2d-category-data.png" width="90%">|<img src="/assets/images/2d-category-fit.png" width="90%">
