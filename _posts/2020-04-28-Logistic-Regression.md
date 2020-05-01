@@ -36,7 +36,7 @@ then we see that $$h(z(\mathbf{r}))$$ will be approximately 0 to one side of the
 
 Since we don't know *a priori* what $$\hat{\mathbf{n}}$$ or $$\mathbf{p}$$ should be (at least not without doing the computer's job), we may as well call $$-\hat{\mathbf{n}}\cdot\mathbf{p} = \beta_0$$. With these definitions
 
-$$\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) = \hat{\mathbf{n}}\cdot\mathbf{r}+\theta_0,$$
+$$\hat{\mathbf{n}}\cdot(\mathbf{r}-\mathbf{p}) = \hat{\mathbf{n}}\cdot\mathbf{r}+\beta_0,$$
 
 we see that the appropriate classifying function is
 
